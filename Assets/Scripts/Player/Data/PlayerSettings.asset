@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55c59503ce22f374abadbaa71126d0f6, type: 3}
   m_Name: PlayerSettings
   m_EditorClassIdentifier: Assembly-CSharp::Game.Player.PlayerSettings
-  Speed: 1000
+  Speed: 2
+  ShootRate: 2

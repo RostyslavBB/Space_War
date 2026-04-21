@@ -6,5 +6,6 @@ namespace Game.Player
     public class PlayerSettings : ScriptableObject
     {
         public float Speed = 5f;
+        public float ShootRate = 5f;
     }
 }

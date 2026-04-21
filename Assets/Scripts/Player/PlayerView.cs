@@ -8,6 +8,8 @@ namespace Game.Player
         [SerializeField] private Camera _camera;
         [SerializeField] private PlayerSettings _playerSettings;
         [SerializeField] private PlayerInput _playerInput;
+        [SerializeField] private BulletPool _bulletPool;
+        [SerializeField] private Transform _spawnPoint;
 
         private PlayerPresenter _playerPresenter;
 
@@ -15,7 +17,12 @@ namespace Game.Player
         {
             PlayerModel playerModel = new(_playerSettings);
 
-            _playerPresenter = new(this, playerModel, _playerInput, _camera);
+            _playerPresenter = new(this, playerModel, _playerInput, _camera, _bulletPool, _spawnPoint);
+        }
+
+        private void Start()
+        {
+            StartCoroutine(_playerPresenter.Shooting());
         }
 
         private void Update()
