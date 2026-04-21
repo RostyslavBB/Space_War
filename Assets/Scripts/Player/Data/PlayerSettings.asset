@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerSettings
   m_EditorClassIdentifier: Assembly-CSharp::Game.Player.PlayerSettings
   Speed: 2
-  ShootRate: 2
+  ShootRate: 0.5

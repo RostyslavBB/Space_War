@@ -34,5 +34,10 @@ namespace Game.Player
         {
             transform.position = newPosition;
         }
+
+        public void Death()
+        {
+            Destroy(gameObject);
+        }
     }
 }

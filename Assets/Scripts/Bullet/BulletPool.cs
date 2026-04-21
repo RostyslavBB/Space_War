@@ -25,6 +25,8 @@ namespace Game.Player
         {
             Bullet bullet = Instantiate(_bulletPrefab, _bulletsParent);
 
+            bullet.Initialize(this);    
+
             bullet.gameObject.SetActive(false);
 
             return bullet;
