@@ -16,6 +16,10 @@ namespace Game.Enemies
         private SignalBus _signalBus;
         private Coroutine _spawnCoroutine;
 
+        private float _leftEdge;
+        private float _rightEdge;
+        private readonly float _padding = 0.5f;
+
         [Inject]
         private void Construct(SignalBus signalBus)
         {
@@ -25,6 +29,9 @@ namespace Game.Enemies
         private void Awake()
         {
             _spawnCoroutine = StartCoroutine(SpawnEnemies());
+
+            _leftEdge = _camera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
+            _rightEdge = _camera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x;
         }
 
         private void OnEnable()
@@ -45,11 +52,8 @@ namespace Game.Enemies
             {
                 Enemy enemy = _enemyPool.Get();
 
-                float leftEdge = _camera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
-                float rightEdge = _camera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x;
-
-                float padding = 0.5f;
-                float randomX = Random.Range(leftEdge + padding, rightEdge - padding);
+                
+                float randomX = Random.Range(_leftEdge + _padding, _rightEdge - _padding);
 
                 enemy.SetPosition(new Vector3(randomX, _spawnPoint.position.y, _spawnPoint.position.z));
 
