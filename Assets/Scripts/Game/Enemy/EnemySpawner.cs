@@ -28,10 +28,13 @@ namespace Game.Enemies
 
         private void Awake()
         {
-            _spawnCoroutine = StartCoroutine(SpawnEnemies());
-
             _leftEdge = _camera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
             _rightEdge = _camera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x;
+        }
+
+        private void Start()
+        {
+            _spawnCoroutine = StartCoroutine(SpawnEnemies());
         }
 
         private void OnEnable()

@@ -481,6 +481,7 @@ GameObject:
   - component: {fileID: 970881505}
   - component: {fileID: 970881507}
   - component: {fileID: 970881508}
+  - component: {fileID: 970881509}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -504,6 +505,7 @@ MonoBehaviour:
   _monoInstallers:
   - {fileID: 970881507}
   - {fileID: 970881508}
+  - {fileID: 970881509}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -566,6 +568,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcdfa549701e89947835a2e838f4c5e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.DI.EventBusInstaller
+--- !u!114 &970881509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970881504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba1ec1fc18e3add4b93894bab4bfc4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.DI.CoreInstaller
 --- !u!1 &1068505838
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "883276081837",
+    "project_id": "spacewar-73a54",
+    "storage_bucket": "spacewar-73a54.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883276081837:android:2312902169702c900a7424",
+        "android_client_info": {
+          "package_name": "com.SpaceWar.unitytest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDs55S1IApiOjGrThB7DUkrDyeSj6wqI-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

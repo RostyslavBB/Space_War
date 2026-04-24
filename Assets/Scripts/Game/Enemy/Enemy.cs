@@ -1,3 +1,4 @@
+using Game.DI;
 using Game.Player;
 using Interfaces.Score;
 using UnityEngine;
@@ -8,14 +9,16 @@ namespace Game.Enemies
     public class Enemy : MonoBehaviour
     {
         private EnemyPool _enemyPool;
+        private SignalBus _signalBus;
 
         private IScoreService _scoreService;
 
         [Inject]
-        private void Construct(IScoreService scoreService, EnemyPool enemyPool)
+        private void Construct(IScoreService scoreService, EnemyPool enemyPool, SignalBus signalBus)
         {
             _scoreService = scoreService;
             _enemyPool = enemyPool;
+            _signalBus = signalBus;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -25,6 +28,8 @@ namespace Game.Enemies
                 bullet.Release();
 
                 _scoreService.AddScore(1);
+
+                _signalBus.Fire(new OnEnemyDeadSignal { Score = 1 });
 
                 _enemyPool.Release(this);
             }
