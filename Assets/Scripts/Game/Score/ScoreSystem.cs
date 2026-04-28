@@ -1,6 +1,9 @@
+using Game.DI;
+using Game.Enemies;
 using Interfaces.Score;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace Game.Score
 {
@@ -10,9 +13,19 @@ namespace Game.Score
 
         private int _currentScore = 0;
 
+        private SignalBus _signalBus;
+
+        [Inject]
+        private void Construct(SignalBus signalBus)
+        {
+            _signalBus = signalBus;
+        }
+
         public void AddScore(int score)
         {
             _currentScore += score;
+
+            _signalBus.Fire(new OnEnemyDeadSignal { Score = _currentScore });
 
             UpdateView();
         }

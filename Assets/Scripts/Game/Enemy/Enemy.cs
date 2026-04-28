@@ -31,15 +31,30 @@ namespace Game.Enemies
 
                 _signalBus.Fire(new OnEnemyDeadSignal { Score = 1 });
 
-                _enemyPool.Release(this);
+                Death();
             }
 
             if (collision.gameObject.TryGetComponent(out PlayerView playerView))
             {
-                playerView.Death();
-
                 _enemyPool.Release(this);
+
+                playerView.Death();
             }
+        }
+
+        private void OnEnable()
+        {
+            _signalBus.Subscribe<OnPlayerDeadSignal>(Death);
+        }
+
+        private void Death()
+        {
+            _enemyPool.Release(this);
+        }
+
+        private void OnDisable()
+        {
+            _signalBus.TryUnsubscribe<OnPlayerDeadSignal>(Death);
         }
 
         public void SetPosition(Vector3 newPosition)
