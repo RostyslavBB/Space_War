@@ -17,14 +17,14 @@ namespace Core.Analytics
 
         public void TrackEvent(string name)
         {
-            Debug.LogWarning("Firebase event name " + name);
+            Debug.Log("Firebase event name " + name);
 
             FirebaseAnalytics.LogEvent(name);
         }
 
         public void TrackEvent(string name, int value)
         {
-            Debug.LogWarning("Firebase event name " + name + " score " + value);
+            Debug.Log("Firebase event name " + name + " score " + value);
 
             FirebaseAnalytics.LogEvent(name, "score", value);
         }

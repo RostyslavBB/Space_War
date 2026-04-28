@@ -10,10 +10,12 @@ namespace Game.DI
         public override void InstallBindings()
         {
             Container.Bind<IAnalyticsProvider>().To<FirebaseAnalyticsService>().AsSingle();
+            Container.Bind<IAnalyticsProvider>().To<FacebookAnalyticsService>().AsSingle();
 
             Container.Bind<IAnalyticsService>().To<AnalyticsService>().AsSingle();
-            Container.BindInterfacesTo<AnalyticsInitializer>().AsSingle();
 
+            Container.BindInterfacesTo<AnalyticsInitializer>().AsSingle();
+            Container.BindInterfacesTo<GameAnalyticsHandler>().AsSingle();
             Container.BindInterfacesTo<EnemyAnalyticsHandler>().AsSingle();
         }
     }
